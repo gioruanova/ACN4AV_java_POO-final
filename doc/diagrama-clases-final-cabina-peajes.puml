@@ -3,14 +3,15 @@
 Title Ejercicio Final Cabina Peajes
 
 class Autopista {
-	List<EstacionPeaje> estaciones
+	- List<EstacionPeaje> estaciones
 }
 
 class EstacionPeaje {
-	Long id
-	String descripcion
-	List<Cabina> cabinas
-	<static> dameHoraActual()
+	- Long id
+	- String descripcion
+	- List<Cabina> cabinas
+
+	+ <static> dameHoraActual()
 }
 
 note right of EstacionPeaje::dameHoraActual
@@ -19,9 +20,9 @@ devolver un valor entre 0 y 23
 end note
 
 class Cabina {
-	Long id
-	MedioPago medioPago
-	List<Registro> registros
+	- Long id
+	- MedioPago medioPago
+	- List<Registro> registros
 
 	+ cobrar(Vehiculo) : Double
 
@@ -33,16 +34,18 @@ y por último lo agrega a la lista de registros
 end note
 
 abstract class MedioPago {
-	String descripcion
+	- String descripcion
 
-	{abstract} getDescuento()
+	+ {abstract} getDescuento() : Double
+	+ {abstract} getDiasDemora() : Integer
 
 }
 
 class Sube {
-	Integer diasDemora
+	- Integer diasDemora
 
-	getDescuento()
+	+ getDescuento()
+	+ getDiasDemora()
 }
 note bottom of Sube
 Descuento:
@@ -51,9 +54,10 @@ end note
 
 
 class Pase {
-	Integer diasDemora
+	- Integer diasDemora
 
-	getDescuento()
+	+ getDescuento()
+	+ getDiasDemora()
 }
 note bottom of Pase
 Descuento:
@@ -62,24 +66,26 @@ si la demora es menor a 5 días, sino un 12%.
 end note
 
 class Efectivo {
-	getDescuento()
+	+ getDescuento()
+	+ getDiasDemora()
 }
 note bottom of Efectivo
 Descuento:
 En el caso del medio de pago efectivo,
 por el momento no ofrece descuento, pero
 en un futuro puede llegar a hacerlo.
+En el método getDiasDemora retornamos 0 (cero).
 end note
 
 class Vehiculo {
-	String patente
-	CategoriaVehiculo categoriaVehiculo
+	- String patente
+	- CategoriaVehiculo categoriaVehiculo
 }
 
 enum CategoriaVehiculo {
-	AUTO(10)
-	CAMION(20)
-	MOTO(5)
+	+ AUTO(10)
+	+ CAMION(20)
+	+ MOTO(5)
 
 	- Double tarifa
 
@@ -90,12 +96,14 @@ enum CategoriaVehiculo {
 
 
 class Registro {
-	Vehiculo vehiculo
-	Integer hora
+	- Vehiculo vehiculo
+	- Integer hora
 
 	+ Registro(vehiculo)
 
 	+ cobrar() : Double
+	+ getIncrementoHoraPico()
+	- esHoraPico()
 }
 note right of Registro
 Al construir una instancia de Registro solo necesitamos el vehículo
