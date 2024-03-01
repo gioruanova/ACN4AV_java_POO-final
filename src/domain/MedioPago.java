@@ -2,30 +2,21 @@ package domain;
 
 public abstract class MedioPago {
 
-	// ATRIBUTOS
+	// ATRIBUTOS:
 	private String descripcion;
 
-	// CONSTRUCTORES
+	// CONSTRUCTORES:
 	public MedioPago(String descripcion) {
 		this.descripcion = descripcion;
 	}
 
-	// GETTERS Y SETTERS
-	public String getDescripcion() {
-		return descripcion;
-	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-
-	// METODO ABSTRACTO
 	public abstract Double getDescuento();
 
-	public abstract Integer getDiasDemora();
+	public abstract Integer getDiasDeMora();
 
+	// METODO TOSTRING DEFAULT
 	@Override
 	public String toString() {
-		return "MedioPago [descripcion=" + descripcion + "]";
+		return "MedioDePago{" + "description='" + descripcion + '\'' + '}';
 	}
 }

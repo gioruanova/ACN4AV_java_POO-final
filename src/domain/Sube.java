@@ -2,32 +2,38 @@ package domain;
 
 public class Sube extends MedioPago {
 
-	// ATRIBUTOS
+	// ATRIBUTOS:
 	private Integer diasDemora;
 
-	public Sube(Integer diasDemora) {
+	// CONSTRUCTORES:
+	public Sube() {
+		super("SUBE");
+	}
+
+	public Sube(String descripcion) {
 		super("SUBE");
 		this.diasDemora = diasDemora;
 	}
 
-	// GETTERS Y SETTERS
+	// GETTERS & SETTERS
 	public void setDiasDemora(Integer diasDemora) {
 		this.diasDemora = diasDemora;
 	}
 
 	@Override
 	public Double getDescuento() {
-		return 10.0;
+		return 10D;
 	}
 
 	@Override
-	public Integer getDiasDemora() {
-		return diasDemora;
+	public Integer getDiasDeMora() {
+		return this.diasDemora;
 	}
 
+	// METODO TOSTRING DEFAULT
 	@Override
 	public String toString() {
-		return "Sube [diasDemora=" + diasDemora + ", toString()=" + super.toString() + "]";
+		return "Sube [demora " + diasDemora + " dias]";
 	}
 
 }

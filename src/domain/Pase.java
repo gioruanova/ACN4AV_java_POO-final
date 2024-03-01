@@ -2,39 +2,44 @@ package domain;
 
 public class Pase extends MedioPago {
 
-	// ATRIBUTOS
+	// ATRIBUTOS:
 	private Integer diasDemora;
 
-	// CONSTRUCTORES
-	public Pase(Integer diasDemora) {
+	// CONSTRUCTORES:
+	public Pase() {
 		super("PASE");
-		this.diasDemora = diasDemora;
 	}
 
-	// GETTERS Y SETTERS
-	public void setDiasDemora(Integer diasDemora) {
+	public Pase(String descripcion) {
+		super("PASE");
 		this.diasDemora = diasDemora;
 	}
 
 	@Override
 	public Double getDescuento() {
-		Double valor = 0.0;
-		if (diasDemora < 5) {
-			valor = 15.0;
-		} else {
-			valor = 12.0;
+		int dias = (diasDemora != null) ? diasDemora.intValue() : 0;
+		double descuentoValor = 0D;
+		if (dias > 0 && dias <= 5) {
+			descuentoValor = 0.05;
+		} else if (dias > 5 && dias <= 10) {
+			descuentoValor = 0.1;
 		}
-		return valor;
+		return descuentoValor;
+	}
+
+	public void setDiasDemora(Integer diasDemora) {
+		this.diasDemora = diasDemora;
 	}
 
 	@Override
-	public Integer getDiasDemora() {
+	public Integer getDiasDeMora() {
 		return diasDemora;
 	}
 
+	// METODO TOSTRING DEFAULT
 	@Override
 	public String toString() {
-		return "Pase [diasDemora=" + diasDemora + ", toString()=" + super.toString() + "]";
+		return "Pase [demora " + diasDemora + " dias]";
 	}
 
 }

@@ -6,68 +6,102 @@ import java.util.Random;
 
 public class EstacionPeaje {
 
+	// ATRIBUTOS:
+	private Long idEstacionPeaje;
+	private String descripcionPeaje;
+	private List<Cabina> cabina = new ArrayList<>();
+	private static Random random = new Random();
 
-	// ATRIBUTOS
-	private Long id;
-	private String descripcion;
-	private List<Cabina> cabinas;
-
-	private static Random random;
-
-	// CONSTRUCTORES
+	// CONSTRUCTORES:
 	public EstacionPeaje() {
-		this.cabinas = new ArrayList<Cabina>();
+
 	}
 
-	public EstacionPeaje(Long id, String descripcion) {
-		this();
-		this.id = id;
-		this.descripcion = descripcion;
+	public EstacionPeaje(Long idEstacionPeaje, String descripcionPeaje, List<Cabina> cabina) {
+		this.idEstacionPeaje = idEstacionPeaje;
+		this.descripcionPeaje = descripcionPeaje;
+		this.cabina = cabina;
 	}
 
-	// GETTERS Y SETTERS
-	public Long getId() {
-		return id;
+	// GETTERS & SETTERS
+	public Long getIdEstacionPeaje() {
+		return idEstacionPeaje;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdEstacionPeaje(Long idEstacionPeaje) {
+		this.idEstacionPeaje = idEstacionPeaje;
 	}
 
-	public String getDescripcion() {
-		return descripcion;
+	public String getDescripcionPeaje() {
+		return descripcionPeaje;
 	}
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setDescripcionPeaje(String descripcionPeaje) {
+		this.descripcionPeaje = descripcionPeaje;
 	}
 
-	public List<Cabina> getCabinas() {
-		return cabinas;
+	public List<Cabina> getCabina() {
+		return cabina;
 	}
 
-	public void setCabinas(List<Cabina> cabinas) {
-		this.cabinas = cabinas;
+	public void setCabina(List<Cabina> cabina) {
+		this.cabina = cabina;
 	}
 
-	public void addCabina(Cabina cabina) {
-		this.cabinas.add(cabina);
+	public static Random getRandom() {
+		return random;
 	}
 
-	// METODO ESTATICO
-	public static Integer dameHoraActualConMath() {
-		return (int) (Math.random() * 24);
+	public static void setRandom(Random random) {
+		EstacionPeaje.random = random;
 	}
 
-	public static Integer dameHoraActualConRandom() {
+	// METODOS
+	public static Integer getHoraRandom() {
 		if (random == null) {
 			random = new Random();
 		}
 		return random.nextInt(24);
 	}
 
+	// METODOS
+	public List<Long> idsCabinaEfectivo() {
+		List<Long> idsCabinaEfectivo = new ArrayList<>();
+		for (Cabina cabina : cabina) {
+			if (cabina.getMedioPago() instanceof Efectivo) {
+				idsCabinaEfectivo.add(cabina.getIdPeaje());
+			}
+		}
+		return idsCabinaEfectivo;
+	}
+
+	public double promedioMora() {
+		int totalDiasDemora = 0;
+		int cantidadCabinas = 0;
+
+		for (Cabina cabina : cabina) {
+			MedioPago medioDePago = cabina.getMedioPago();
+
+			if (medioDePago instanceof Pase || medioDePago instanceof Sube) {
+				Integer diasDemora = medioDePago.getDiasDeMora();
+
+				if (diasDemora != null) {
+					totalDiasDemora += diasDemora;
+					cantidadCabinas++;
+				}
+			}
+		}
+		if (cantidadCabinas > 0) {
+			return (double) totalDiasDemora / cantidadCabinas;
+		} else {
+			return 0D;
+		}
+	}
+
+	// METODO TOSTRING DEFAULT
 	@Override
 	public String toString() {
-		return "EstacionPeaje [id=" + id + ", descripcion=" + descripcion + ", cabinas=" + cabinas + "]";
+		return "EstacionPeaje [" + " ID= " + idEstacionPeaje + ", Descripcion='" + descripcionPeaje + '|' + ", Cabina: "
+				+ ']';
 	}
 }

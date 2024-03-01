@@ -4,18 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Autopista {
-	
-	// ATRIBUTOS
+
+	// ATRIBUTOS:
+	private final String nombreAutopista;
 	private List<EstacionPeaje> estaciones;
 
-	
-	// CONSTRUCTORES
-	public Autopista() {
-		this.estaciones = new ArrayList<EstacionPeaje>();
+	// CONSTRUCTORES:
+	public Autopista(String nombreAutopista) {
+		this.nombreAutopista = nombreAutopista;
+		this.estaciones = new ArrayList<>();
 	}
 
+	public Autopista(List<EstacionPeaje> estaciones) {
+		this.nombreAutopista = "Sin nombre";
+		this.estaciones = estaciones;
+	}
 
-	// GETTERS Y SETTERS
+	// GETTERS & SETTERS
+	public String getNombreAutopista() {
+		return nombreAutopista;
+	}
+
 	public List<EstacionPeaje> getEstaciones() {
 		return estaciones;
 	}
@@ -28,9 +37,9 @@ public class Autopista {
 		this.estaciones.add(estacion);
 	}
 
-
+	// METODO TOSTRING DEFAULT
 	@Override
 	public String toString() {
-		return "Autopista [estaciones=" + estaciones + "]";
+		return "Autopista[" + "Nombre Autopista: " + nombreAutopista + " - " + "Estaciones: " + estaciones + ']';
 	}
 }

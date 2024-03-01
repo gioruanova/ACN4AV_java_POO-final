@@ -2,24 +2,37 @@ package domain;
 
 public class Efectivo extends MedioPago {
 
-	// CONSTRUCTORES
+	// ATRIBUTOS:
+	private Integer diasDemora;
+
+	// CONSTRUCTORES:
 	public Efectivo() {
 		super("EFECTIVO");
 	}
 
+	public Efectivo(String descripcion) {
+		super("EFECTIVO");
+		this.diasDemora = 0;
+	}
+
 	@Override
 	public Double getDescuento() {
-		return 0.0;
+		return 10D;
 	}
 
 	@Override
-	public Integer getDiasDemora() {
-		return 0;
+	public Integer getDiasDeMora() {
+		return this.diasDemora;
 	}
 
+	public void setDiasDemora(Integer diasDemora) {
+		this.diasDemora = diasDemora;
+	}
+
+	// METODO TOSTRING DEFAULT
 	@Override
 	public String toString() {
-		return "Efectivo [toString()=" + super.toString() + "]";
+		return "Efectivo [Pago inmediato]";
 	}
 
 }
