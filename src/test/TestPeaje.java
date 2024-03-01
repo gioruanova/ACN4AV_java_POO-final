@@ -49,6 +49,7 @@ public class TestPeaje {
 		Vehiculo vehiculo2 = new Vehiculo("CC1212AB", CategoriaVehiculo.AUTO, cabina2);
 		Vehiculo vehiculo3 = new Vehiculo("HA1212AG", CategoriaVehiculo.CAMION, cabina3);
 
+		// Validaciones cabinas
 		System.out.println("-------------\nAUTOPISTA\n" + autopista.getNombreAutopista() + "\n-------------");
 		System.out.println("CABINAS en Peaje");
 		System.out.println(cabina1.toString());
@@ -58,15 +59,17 @@ public class TestPeaje {
 		System.out.println(cabina5.toString());
 		System.out.println("-----------------\n");
 
+		// Recorrido vehiculos por cabinas
 		cabina1.imprimirTotal(vehiculo1);
 		cabina2.imprimirTotal(vehiculo2);
 		cabina3.imprimirTotal(vehiculo3);
 		cabina4.imprimirTotal(vehiculo1);
 		cabina5.imprimirTotal(vehiculo2);
 
+		// Calculos negocios
 		double promedioDemora = peajeUno.promedioMora();
 		if (promedioDemora == 0) {
-			System.out.println("Actualmente sin demoras");
+			System.out.println("Sin demoras en el pago registradas");
 		} else {
 			System.out.println("Dias promedio en demora de pago: " + promedioDemora + " días");
 		}
