@@ -37,6 +37,23 @@ public class Autopista {
 		this.estaciones.add(estacion);
 	}
 
+	// CALCULAR PROMEDIO DEMORA EN PAGO
+	public void mostrarPromedioDemoras(EstacionPeaje peajeUno) {
+		if (peajeUno.promedioMora() != 0) {
+			System.out.println("Días promedio en demora de pago: " + peajeUno.promedioMora() + " días");
+		} else {
+			System.out.println("Sin demoras en el pago registradas");
+			
+		}
+	}
+	
+	
+	// IDS CABINAS QUE ACEPTAN EFECTIVO
+    public void idsCabinasEfectivo(EstacionPeaje peajeUno) {
+        List<Long> idsCabinaEfectivo = peajeUno.idsCabinaEfectivo();
+        System.out.println("ID agente/cabina pago efectivo: " + idsCabinaEfectivo);
+    }
+
 	// METODO TOSTRING DEFAULT
 	@Override
 	public String toString() {

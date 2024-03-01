@@ -1,25 +1,28 @@
 package test;
 
-import domain.*;
+import domain.Autopista;
+import domain.EstacionPeaje;
+import domain.Cabina;
 
-import java.util.List;
+import domain.Pase;
+import domain.Efectivo;
+import domain.Sube;
+
+import domain.CategoriaVehiculo;
+import domain.Vehiculo;
 
 public class TestPeaje {
 
 	public static void main(String[] args) {
 
-		Autopista autopista = new Autopista("Autopista Panamericana S.A.");
+		Autopista autopistaPanamericana = new Autopista("Autopista Panamericana S.A.");
 
 		EstacionPeaje peajeUno = new EstacionPeaje();
 
 		// Creacion medios de pago
-		Sube pagoSube = new Sube("sube");
-		pagoSube.setDiasDemora(2);
-
-		Pase pagoPase = new Pase("pase");
-		pagoPase.setDiasDemora(4);
-
-		Efectivo pagoEfectivo = new Efectivo("Efectivo");
+		Sube pagoSube = new Sube();
+		Pase pagoPase = new Pase();
+		Efectivo pagoEfectivo = new Efectivo();
 
 		// Creacion cabinas
 		Cabina cabina1 = new Cabina();
@@ -50,7 +53,8 @@ public class TestPeaje {
 		Vehiculo vehiculo3 = new Vehiculo("HA1212AG", CategoriaVehiculo.CAMION, cabina3);
 
 		// Validaciones cabinas
-		System.out.println("-------------\nAUTOPISTA\n" + autopista.getNombreAutopista() + "\n-------------");
+		System.out
+				.println("-------------\nAUTOPISTA\n" + autopistaPanamericana.getNombreAutopista() + "\n-------------");
 		System.out.println("CABINAS en Peaje");
 		System.out.println(cabina1.toString());
 		System.out.println(cabina2.toString());
@@ -67,15 +71,10 @@ public class TestPeaje {
 		cabina5.imprimirTotal(vehiculo2);
 
 		// Calculos negocios
-		double promedioDemora = peajeUno.promedioMora();
-		if (promedioDemora == 0) {
-			System.out.println("Sin demoras en el pago registradas");
-		} else {
-			System.out.println("Dias promedio en demora de pago: " + promedioDemora + " días");
-		}
+		autopistaPanamericana.mostrarPromedioDemoras(peajeUno);
 
-		List<Long> idsCabinaEfectivo = peajeUno.idsCabinaEfectivo();
-		System.out.println("ID agente/cabina pago efectivo: " + idsCabinaEfectivo);
+		// ID's de cabina que aceptan efectivo
+		autopistaPanamericana.idsCabinasEfectivo(peajeUno);
 
 	}
 

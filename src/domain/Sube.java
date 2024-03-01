@@ -3,14 +3,14 @@ package domain;
 public class Sube extends MedioPago {
 
 	// ATRIBUTOS:
-	private Integer diasDemora;
+	private Integer diasDemora = 2;
 
 	// CONSTRUCTORES:
 	public Sube() {
 		super("SUBE");
 	}
 
-	public Sube(String descripcion) {
+	public Sube(String descripcion, Integer diasDemora) {
 		super("SUBE");
 		this.diasDemora = diasDemora;
 	}

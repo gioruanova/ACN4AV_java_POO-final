@@ -3,7 +3,7 @@ package domain;
 public class Pase extends MedioPago {
 
 	// ATRIBUTOS:
-	private Integer diasDemora;
+	private Integer diasDemora = 4;
 
 	// CONSTRUCTORES:
 	public Pase() {

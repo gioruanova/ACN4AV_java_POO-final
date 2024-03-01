@@ -11,15 +11,19 @@ public class Cabina {
 	private MedioPago medioPago;
 	private List<Registro> registros;
 
+	// CONSTRUCTOR
+	// Mejora recomendada: Seria importante adicionar un atributo llamado estado,
+	// para indicar si la cabina esta operativa o no (como en la vida real)
+	// Adicionalmente, crear la cabina con el metodo de pago Efectivo por default,
+	// ya que se debe garantizar al menos un metodo de pago, pero adicionalmente,
+	// generar un condicional, para cambiar el metodo de pago al momento de
+	// instanciar la clase, deshabilitando el medio de pago por default. No es algo
+	// prudente manejar la instancia del medio de pago desde el test.
+	// Adicionalmente, si se adicionan mas formas de pago, el codigo soportara
+	// escalabilidad y re factorizacion
 	public Cabina() {
 		this.registros = new ArrayList<>();
 		this.idPeaje = generarIdRandom();
-	}
-
-	public Cabina(Long idPeaje, MedioPago medioPago, List<Registro> registros) {
-		this.idPeaje = idPeaje;
-		this.medioPago = medioPago;
-		this.registros = registros;
 	}
 
 	// GETTERS & SETTERS
@@ -35,8 +39,8 @@ public class Cabina {
 		return medioPago;
 	}
 
-	public void setMedioPago(MedioPago medioDePago) {
-		this.medioPago = medioDePago;
+	public void setMedioPago(MedioPago medioPago) {
+		this.medioPago = medioPago;
 	}
 
 	public List<Registro> getRegistro() {
@@ -51,15 +55,15 @@ public class Cabina {
 	private Long generarIdRandom() {
 		Random random = new Random();
 		long randomLong = Math.abs(random.nextLong());
-		long threeDigitRandom = randomLong % 1000; // Extracting last 3 digits
-		return threeDigitRandom;
+		long redondeoValor = randomLong % 1000;
+		return redondeoValor;
 	}
 
 	public Double cobrar(Vehiculo vehiculo) {
 		Registro registro = new Registro(vehiculo, EstacionPeaje.getHoraRandom(), 0D);
-		Double importe = registro.cobrar();
+		Double valorCobrado = registro.cobrar();
 		registros.add(registro);
-		return importe;
+		return valorCobrado;
 	}
 
 	public void imprimirTotal(Vehiculo vehiculo) {
