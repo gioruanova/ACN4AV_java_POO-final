@@ -47,7 +47,6 @@ public class TestPeaje {
 		peajeUno.getCabina().add(cabina4);
 		peajeUno.getCabina().add(cabina5);
 
-		
 		// Creacion vehiculos
 		Vehiculo vehiculo1 = new Vehiculo("BE4582DE", CategoriaVehiculo.CAMION, cabina1);
 		Vehiculo vehiculo2 = new Vehiculo("NRG456", CategoriaVehiculo.MOTO, cabina2);
@@ -65,7 +64,8 @@ public class TestPeaje {
 		System.out.println(cabina5.toString());
 		System.out.println("-----------------\n");
 
-		// Recorrido vehiculos por cabinas
+		// Detalle cobros cabinas
+		System.out.println("---------------------------------------------------");
 		cabina1.mostrarTotalCabina(vehiculo1);
 		cabina4.mostrarTotalCabina(vehiculo1);
 		cabina1.mostrarTotalCabina(vehiculo4);
@@ -74,9 +74,11 @@ public class TestPeaje {
 		cabina3.mostrarTotalCabina(vehiculo3);
 
 		// Calculos negocios
+		System.out.println("Diferido pago:");
 		autopistaPanamericana.mostrarPromedioDemoras(peajeUno);
 
 		// ID's de cabina que aceptan efectivo
+		System.out.println("\nCabinas aceptando efectivo");
 		autopistaPanamericana.idsCabinasEfectivo(peajeUno);
 
 	}

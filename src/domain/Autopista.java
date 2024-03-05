@@ -41,7 +41,7 @@ public class Autopista {
 	// Calcular promedio demora en pago
 	public void mostrarPromedioDemoras(EstacionPeaje peajeUno) {
 		if (peajeUno.promedioDemora() != 0) {
-			System.out.println("Promedio dias en pago: " + peajeUno.promedioDemora() + " dias");
+			System.out.println("Promedio dias: " + peajeUno.promedioDemora() + " dias");
 		} else {
 			System.out.println("Sin demora");
 
@@ -56,7 +56,7 @@ public class Autopista {
 	// listado de cabinas total
 	public void idsCabinasEfectivo(EstacionPeaje peajeUno) {
 		List<Long> idsCabinaEfectivo = peajeUno.idsCabinaEfectivo();
-		System.out.println("ID agente/cabina pago efectivo: " + idsCabinaEfectivo);
+		System.out.println("ID agente/cabina (SOLO-EFECTIVO): " + idsCabinaEfectivo);
 	}
 
 	// METODO TOSTRING DEFAULT
