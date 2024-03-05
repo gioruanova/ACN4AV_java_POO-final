@@ -47,6 +47,7 @@ public class TestPeaje {
 		peajeUno.getCabina().add(cabina4);
 		peajeUno.getCabina().add(cabina5);
 
+		
 		// Creacion vehiculos
 		Vehiculo vehiculo1 = new Vehiculo("BE4582DE", CategoriaVehiculo.CAMION, cabina1);
 		Vehiculo vehiculo2 = new Vehiculo("NRG456", CategoriaVehiculo.MOTO, cabina2);
