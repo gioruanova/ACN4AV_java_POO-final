@@ -12,12 +12,9 @@ public class Vehiculo {
 	}
 
 	public Vehiculo(String patente, CategoriaVehiculo categoriaVehiculo, Cabina cabina) {
-		if (patente.length() != 8 || !patente.matches("\\w+")) {
-			throw new IllegalArgumentException("La patente debe tener exactamente 8 caracteres alfanuméricos.");
-		}
-		this.patente = patente;
 		this.categoriaVehiculo = categoriaVehiculo;
 		this.cabina = cabina;
+		this.patente = patente;
 	}
 
 	// Getters & Setters

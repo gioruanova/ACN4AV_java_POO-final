@@ -17,6 +17,6 @@ public abstract class MedioPago {
 	// METODO TOSTRING DEFAULT
 	@Override
 	public String toString() {
-		return "MedioDePago{" + "description='" + descripcion + '\'' + '}';
+		return "MedioDePago{" + "Description: '" + descripcion + '\'' + '}';
 	}
 }

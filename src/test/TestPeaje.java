@@ -32,10 +32,10 @@ public class TestPeaje {
 		cabina2.setMedioPago(pagoEfectivo);
 
 		Cabina cabina3 = new Cabina();
-		cabina3.setMedioPago(pagoEfectivo);
+		cabina3.setMedioPago(pagoPase);
 
 		Cabina cabina4 = new Cabina();
-		cabina4.setMedioPago(pagoEfectivo);
+		cabina4.setMedioPago(pagoPase);
 
 		Cabina cabina5 = new Cabina();
 		cabina5.setMedioPago(pagoSube);
@@ -48,9 +48,10 @@ public class TestPeaje {
 		peajeUno.getCabina().add(cabina5);
 
 		// Creacion vehiculos
-		Vehiculo vehiculo1 = new Vehiculo("AA8888CA", CategoriaVehiculo.MOTO, cabina1);
-		Vehiculo vehiculo2 = new Vehiculo("CC1212AB", CategoriaVehiculo.AUTO, cabina2);
-		Vehiculo vehiculo3 = new Vehiculo("HA1212AG", CategoriaVehiculo.CAMION, cabina3);
+		Vehiculo vehiculo1 = new Vehiculo("BE4582DE", CategoriaVehiculo.CAMION, cabina1);
+		Vehiculo vehiculo2 = new Vehiculo("NRG456", CategoriaVehiculo.MOTO, cabina2);
+		Vehiculo vehiculo3 = new Vehiculo("JQ9874LC", CategoriaVehiculo.AUTO, cabina3);
+		Vehiculo vehiculo4 = new Vehiculo("LMR879", CategoriaVehiculo.MOTO, cabina3);
 
 		// Validaciones cabinas
 		System.out
@@ -65,10 +66,11 @@ public class TestPeaje {
 
 		// Recorrido vehiculos por cabinas
 		cabina1.mostrarTotalCabina(vehiculo1);
-		cabina2.mostrarTotalCabina(vehiculo2);
-		cabina3.mostrarTotalCabina(vehiculo3);
 		cabina4.mostrarTotalCabina(vehiculo1);
+		cabina1.mostrarTotalCabina(vehiculo4);
+		cabina2.mostrarTotalCabina(vehiculo2);
 		cabina5.mostrarTotalCabina(vehiculo2);
+		cabina3.mostrarTotalCabina(vehiculo3);
 
 		// Calculos negocios
 		autopistaPanamericana.mostrarPromedioDemoras(peajeUno);

@@ -39,7 +39,7 @@ public class Pase extends MedioPago {
 	// METODO TOSTRING DEFAULT
 	@Override
 	public String toString() {
-		return "Pase [demora " + diasDemora + " dias]";
+		return "Pase [" + diasDemora + " dias de demora en pago.]";
 	}
 
 }

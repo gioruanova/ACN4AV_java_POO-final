@@ -55,8 +55,8 @@ public class Cabina {
 	private Long generarIdRandom() {
 		Random random = new Random();
 		long randomLong = Math.abs(random.nextLong());
-		long redondeoValor = randomLong % 1000;
-		return redondeoValor;
+		randomLong = randomLong % 1000;
+		return randomLong;
 	}
 
 	// Metodo para cobrar
@@ -67,10 +67,9 @@ public class Cabina {
 		return valorCobrado;
 	}
 
-	
 	// Metodo para mostrar cobros por cabina
 	public void mostrarTotalCabina(Vehiculo vehiculo) {
-		System.out.println("Recibo: \n" + "Id Agente: " + idPeaje + "\nPatente :" + vehiculo.getPatente()
+		System.out.println("Recibo: \n" + "Id Agente: " + idPeaje + "\nPatente: " + vehiculo.getPatente()
 				+ "\nCategoría: " + vehiculo.getCategoriaVehiculo().name() + "\nTarifa: $" + cobrarVehiculo(vehiculo)
 				+ "\nMetodo: " + getMedioPago());
 		System.out.println();

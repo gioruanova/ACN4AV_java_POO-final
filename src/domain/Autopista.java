@@ -41,15 +41,16 @@ public class Autopista {
 	// Calcular promedio demora en pago
 	public void mostrarPromedioDemoras(EstacionPeaje peajeUno) {
 		if (peajeUno.promedioDemora() != 0) {
-			System.out.println("Días promedio en demora de pago: " + peajeUno.promedioDemora() + " días");
+			System.out.println("Promedio dias en pago: " + peajeUno.promedioDemora() + " dias");
 		} else {
-			System.out.println("Sin demoras en el pago registradas");
+			System.out.println("Sin demora");
 
 		}
 	}
 
 	// Listado de ID's de cabinas que aceptan pago en efectivo
-	// Mejora recomendada: Generar este metodo dinamico para utilizarlo con diferentes
+	// Mejora recomendada: Generar este metodo dinamico para utilizarlo con
+	// diferentes
 	// medios de pago,
 	// incluso para mostrar todos los id's y re utilizar el codigo para mostrar un
 	// listado de cabinas total

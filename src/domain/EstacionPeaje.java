@@ -104,7 +104,7 @@ public class EstacionPeaje {
 	// METODO TOSTRING DEFAULT
 	@Override
 	public String toString() {
-		return "EstacionPeaje [" + " ID= " + idEstacionPeaje + ", Descripcion='" + descripcionPeaje + '|' + ", Cabina: "
-				+ ']';
+		return "Estacion Peaje [" + " ID: " + idEstacionPeaje + ", Descripcion: '" + descripcionPeaje + '|'
+				+ ", Cabina: " + ']';
 	}
 }

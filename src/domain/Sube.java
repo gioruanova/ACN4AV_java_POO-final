@@ -33,7 +33,7 @@ public class Sube extends MedioPago {
 	// METODO TOSTRING DEFAULT
 	@Override
 	public String toString() {
-		return "Sube [demora " + diasDemora + " dias]";
+		return "Sube [" + diasDemora + " dias de demora]";
 	}
 
 }
