@@ -64,11 +64,11 @@ public class TestPeaje {
 		System.out.println("-----------------\n");
 
 		// Recorrido vehiculos por cabinas
-		cabina1.imprimirTotal(vehiculo1);
-		cabina2.imprimirTotal(vehiculo2);
-		cabina3.imprimirTotal(vehiculo3);
-		cabina4.imprimirTotal(vehiculo1);
-		cabina5.imprimirTotal(vehiculo2);
+		cabina1.mostrarTotalCabina(vehiculo1);
+		cabina2.mostrarTotalCabina(vehiculo2);
+		cabina3.mostrarTotalCabina(vehiculo3);
+		cabina4.mostrarTotalCabina(vehiculo1);
+		cabina5.mostrarTotalCabina(vehiculo2);
 
 		// Calculos negocios
 		autopistaPanamericana.mostrarPromedioDemoras(peajeUno);

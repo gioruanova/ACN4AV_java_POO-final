@@ -65,17 +65,20 @@ public class EstacionPeaje {
 	}
 
 	// METODOS
+
+	// Metodo para tipo de pago
 	public List<Long> idsCabinaEfectivo() {
 		List<Long> idsCabinaEfectivo = new ArrayList<>();
-		for (Cabina cabina : cabina) {
-			if (cabina.getMedioPago() instanceof Efectivo) {
-				idsCabinaEfectivo.add(cabina.getIdPeaje());
+		for (Cabina cab : cabina) {
+			if (cab.getMedioPago() instanceof Efectivo) {
+				idsCabinaEfectivo.add(cab.getIdPeaje());
 			}
 		}
 		return idsCabinaEfectivo;
 	}
 
-	public double promedioMora() {
+	// Promoedio de demora
+	public double promedioDemora() {
 		int totalDiasDemora = 0;
 		int cantidadCabinas = 0;
 
@@ -97,8 +100,6 @@ public class EstacionPeaje {
 			return 0D;
 		}
 	}
-	
-	
 
 	// METODO TOSTRING DEFAULT
 	@Override

@@ -37,22 +37,26 @@ public class Autopista {
 		this.estaciones.add(estacion);
 	}
 
-	// CALCULAR PROMEDIO DEMORA EN PAGO
+	// METODOS
+	// Calcular promedio demora en pago
 	public void mostrarPromedioDemoras(EstacionPeaje peajeUno) {
-		if (peajeUno.promedioMora() != 0) {
-			System.out.println("Días promedio en demora de pago: " + peajeUno.promedioMora() + " días");
+		if (peajeUno.promedioDemora() != 0) {
+			System.out.println("Días promedio en demora de pago: " + peajeUno.promedioDemora() + " días");
 		} else {
 			System.out.println("Sin demoras en el pago registradas");
-			
+
 		}
 	}
-	
-	
-	// IDS CABINAS QUE ACEPTAN EFECTIVO
-    public void idsCabinasEfectivo(EstacionPeaje peajeUno) {
-        List<Long> idsCabinaEfectivo = peajeUno.idsCabinaEfectivo();
-        System.out.println("ID agente/cabina pago efectivo: " + idsCabinaEfectivo);
-    }
+
+	// Listado de ID's de cabinas que aceptan pago en efectivo
+	// Mejora recomendada: Generar este metodo dinamico para utilizarlo con diferentes
+	// medios de pago,
+	// incluso para mostrar todos los id's y re utilizar el codigo para mostrar un
+	// listado de cabinas total
+	public void idsCabinasEfectivo(EstacionPeaje peajeUno) {
+		List<Long> idsCabinaEfectivo = peajeUno.idsCabinaEfectivo();
+		System.out.println("ID agente/cabina pago efectivo: " + idsCabinaEfectivo);
+	}
 
 	// METODO TOSTRING DEFAULT
 	@Override

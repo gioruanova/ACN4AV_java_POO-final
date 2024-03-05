@@ -40,16 +40,18 @@ public class Registro {
 	}
 
 	// METODOS
+
+	// Metodo para cobrar
 	public Double cobrar() {
 		Integer horaActual = EstacionPeaje.getHoraRandom();
-		boolean horarioPico = (horaActual >= 6 && horaActual <= 10) || (horaActual >= 17 && horaActual <= 20);
+		boolean horaPico = (horaActual >= 6 && horaActual <= 10) || (horaActual >= 17 && horaActual <= 20);
 
-		Double tarifaBasica = 0D;
+		Double tarifaBase = 0D;
 		if (vehiculo.getCategoriaVehiculo() != null) {
-			tarifaBasica = vehiculo.getCategoriaVehiculo().getTarifa();
+			tarifaBase = vehiculo.getCategoriaVehiculo().getTarifa();
 		}
-		if (horarioPico) {
-			tarifaBasica *= 1.08;
+		if (horaPico) {
+			tarifaBase *= 1.08;
 		}
 
 		double descuento = 0D;
@@ -57,7 +59,7 @@ public class Registro {
 			descuento = vehiculo.getCabina().getMedioPago().getDescuento();
 		}
 
-		Double total = tarifaBasica * (1 + descuento);
+		Double total = tarifaBase * (1 + descuento);
 
 		setTotal(total);
 		return total;

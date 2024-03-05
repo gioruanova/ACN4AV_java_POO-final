@@ -59,16 +59,19 @@ public class Cabina {
 		return redondeoValor;
 	}
 
-	public Double cobrar(Vehiculo vehiculo) {
+	// Metodo para cobrar
+	public Double cobrarVehiculo(Vehiculo vehiculo) {
 		Registro registro = new Registro(vehiculo, EstacionPeaje.getHoraRandom(), 0D);
 		Double valorCobrado = registro.cobrar();
 		registros.add(registro);
 		return valorCobrado;
 	}
 
-	public void imprimirTotal(Vehiculo vehiculo) {
+	
+	// Metodo para mostrar cobros por cabina
+	public void mostrarTotalCabina(Vehiculo vehiculo) {
 		System.out.println("Recibo: \n" + "Id Agente: " + idPeaje + "\nPatente :" + vehiculo.getPatente()
-				+ "\nCategoría: " + vehiculo.getCategoriaVehiculo().name() + "\nTarifa: $" + cobrar(vehiculo)
+				+ "\nCategoría: " + vehiculo.getCategoriaVehiculo().name() + "\nTarifa: $" + cobrarVehiculo(vehiculo)
 				+ "\nMetodo: " + getMedioPago());
 		System.out.println();
 
