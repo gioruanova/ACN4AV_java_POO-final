@@ -59,6 +59,12 @@ public class Autopista {
 		System.out.println("ID agente/cabina (SOLO-EFECTIVO): " + idsCabinaEfectivo);
 	}
 
+	public void recorridoCabinas(EstacionPeaje peaje) {
+		for (EstacionPeaje est : estaciones) {
+			System.out.println(est.mostrarCabina());
+		}
+	}
+
 	// METODO TOSTRING DEFAULT
 	@Override
 	public String toString() {

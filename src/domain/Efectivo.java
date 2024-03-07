@@ -8,10 +8,6 @@ public class Efectivo extends MedioPago {
 	// CONSTRUCTORES:
 	public Efectivo() {
 		super("EFECTIVO");
-	}
-
-	public Efectivo(String descripcion) {
-		super("EFECTIVO");
 		this.diasDemora = 0;
 	}
 

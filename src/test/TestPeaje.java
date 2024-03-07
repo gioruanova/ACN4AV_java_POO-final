@@ -17,7 +17,8 @@ public class TestPeaje {
 
 		Autopista autopistaPanamericana = new Autopista("Autopista Panamericana S.A.");
 
-		EstacionPeaje peajeUno = new EstacionPeaje();
+		EstacionPeaje peajeDos = new EstacionPeaje();
+		autopistaPanamericana.addEstacion(peajeDos);
 
 		// Creacion medios de pago
 		Sube pagoSube = new Sube();
@@ -25,27 +26,18 @@ public class TestPeaje {
 		Efectivo pagoEfectivo = new Efectivo();
 
 		// Creacion cabinas
-		Cabina cabina1 = new Cabina();
-		cabina1.setMedioPago(pagoPase);
-
-		Cabina cabina2 = new Cabina();
-		cabina2.setMedioPago(pagoEfectivo);
-
-		Cabina cabina3 = new Cabina();
-		cabina3.setMedioPago(pagoPase);
-
-		Cabina cabina4 = new Cabina();
-		cabina4.setMedioPago(pagoPase);
-
-		Cabina cabina5 = new Cabina();
-		cabina5.setMedioPago(pagoSube);
+		Cabina cabina1 = new Cabina(pagoPase);
+		Cabina cabina2 = new Cabina(pagoEfectivo);
+		Cabina cabina3 = new Cabina(pagoPase);
+		Cabina cabina4 = new Cabina(pagoPase);
+		Cabina cabina5 = new Cabina(pagoSube);
 
 		// Asigacion cabinas a estacion
-		peajeUno.getCabina().add(cabina1);
-		peajeUno.getCabina().add(cabina2);
-		peajeUno.getCabina().add(cabina3);
-		peajeUno.getCabina().add(cabina4);
-		peajeUno.getCabina().add(cabina5);
+		peajeDos.getCabina().add(cabina1);
+		peajeDos.getCabina().add(cabina2);
+		peajeDos.getCabina().add(cabina3);
+		peajeDos.getCabina().add(cabina4);
+		peajeDos.getCabina().add(cabina5);
 
 		// Creacion vehiculos
 		Vehiculo vehiculo1 = new Vehiculo("BE4582DE", CategoriaVehiculo.CAMION, cabina1);
@@ -57,11 +49,7 @@ public class TestPeaje {
 		System.out
 				.println("-------------\nAUTOPISTA\n" + autopistaPanamericana.getNombreAutopista() + "\n-------------");
 		System.out.println("CABINAS en Peaje");
-		System.out.println(cabina1.toString());
-		System.out.println(cabina2.toString());
-		System.out.println(cabina3.toString());
-		System.out.println(cabina4.toString());
-		System.out.println(cabina5.toString());
+		autopistaPanamericana.recorridoCabinas(peajeDos);
 		System.out.println("-----------------\n");
 
 		// Detalle cobros cabinas
@@ -75,11 +63,11 @@ public class TestPeaje {
 
 		// Calculos negocios
 		System.out.println("Diferido pago:");
-		autopistaPanamericana.mostrarPromedioDemoras(peajeUno);
+		autopistaPanamericana.mostrarPromedioDemoras(peajeDos);
 
 		// ID's de cabina que aceptan efectivo
 		System.out.println("\nCabinas aceptando efectivo");
-		autopistaPanamericana.idsCabinasEfectivo(peajeUno);
+		autopistaPanamericana.idsCabinasEfectivo(peajeDos);
 
 	}
 

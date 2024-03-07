@@ -101,6 +101,10 @@ public class EstacionPeaje {
 		}
 	}
 
+	public List<Cabina> mostrarCabina() {
+		return (this.getCabina());
+	}
+
 	// METODO TOSTRING DEFAULT
 	@Override
 	public String toString() {

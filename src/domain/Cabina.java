@@ -21,6 +21,12 @@ public class Cabina {
 	// prudente manejar la instancia del medio de pago desde el test.
 	// Adicionalmente, si se adicionan mas formas de pago, el codigo soportara
 	// escalabilidad y re factorizacion
+	public Cabina(MedioPago formaPago) {
+		this.registros = new ArrayList<>();
+		this.idPeaje = generarIdRandom();
+		this.medioPago = formaPago;
+	}
+
 	public Cabina() {
 		this.registros = new ArrayList<>();
 		this.idPeaje = generarIdRandom();
@@ -71,14 +77,12 @@ public class Cabina {
 	public void mostrarTotalCabina(Vehiculo vehiculo) {
 		System.out.println("Recibo: \n" + "Id Agente: " + idPeaje + "\nPatente: " + vehiculo.getPatente()
 				+ "\nCategoría: " + vehiculo.getCategoriaVehiculo().name() + "\nTarifa: $" + cobrarVehiculo(vehiculo)
-				+ "\nMetodo: " + getMedioPago());
-		System.out.println();
-
+				+ "\nMetodo: " + getMedioPago() + "\n");
 	}
 
 	// METODO TOSTRING DEFAULT
 	@Override
 	public String toString() {
-		return "Cabina ID: " + this.getIdPeaje();
+		return "Cabina ID: " + this.getIdPeaje() + "\n";
 	}
 }

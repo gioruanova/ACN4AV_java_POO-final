@@ -2,18 +2,18 @@ package domain;
 
 public class Sube extends MedioPago {
 
+	
 	// ATRIBUTOS:
-	private Integer diasDemora = 2;
+	private static final Integer DIAS_DE_DEMORA = 2;
+	private Integer diasDemora;
+
 
 	// CONSTRUCTORES:
 	public Sube() {
 		super("SUBE");
+		this.diasDemora = DIAS_DE_DEMORA;
 	}
 
-	public Sube(String descripcion, Integer diasDemora) {
-		super("SUBE");
-		this.diasDemora = diasDemora;
-	}
 
 	// GETTERS & SETTERS
 	public void setDiasDemora(Integer diasDemora) {

@@ -2,18 +2,18 @@ package domain;
 
 public class Pase extends MedioPago {
 
+	
 	// ATRIBUTOS:
-	private Integer diasDemora = 4;
+	private static final Integer DIAS_DE_DEMORA = 4;
+	private Integer diasDemora;
+
 
 	// CONSTRUCTORES:
 	public Pase() {
 		super("PASE");
+		this.diasDemora = DIAS_DE_DEMORA;
 	}
 
-	public Pase(String descripcion) {
-		super("PASE");
-		this.diasDemora = diasDemora;
-	}
 
 	@Override
 	public Double getDescuento() {
